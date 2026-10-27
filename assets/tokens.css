@@ -1,0 +1,58 @@
+/* LifeFit MM — design tokens (shared by portal & CMS). Source of truth: LifeFit design system artifact. */
+:root {
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Myanmar", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --bg: #f5f6f2;
+  --surface: #ffffff;
+  --surface-2: #edf0ea;
+  --surface-3: #e2e7df;
+  --ink: #15201a;
+  --ink-2: #4a5750;
+  --ink-3: #5f6a63;
+  --line: #dbe1d8;
+
+  --primary: #0b7a55;
+  --primary-hover: #086446;
+  --primary-ink: #ffffff;
+  --primary-soft: #dcf1e7;
+  --primary-soft-ink: #08583e;
+
+  --move: #c2410c;  --move-soft: #fdeadb;
+  --eat: #2f7d32;   --eat-soft: #e1f2df;
+  --mind: #6d3fc0;  --mind-soft: #ece4fa;
+
+  --warn: #a15c07;  --warn-soft: #fcefd6;
+  --danger: #b42318; --danger-soft: #fde7e4;
+  --info: #175cd3;  --info-soft: #e0ebfd;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px;
+
+  --shadow-1: 0 1px 2px rgba(21, 32, 26, .06), 0 1px 1px rgba(21, 32, 26, .04);
+  --shadow-2: 0 8px 24px rgba(21, 32, 26, .10);
+  --focus: 0 0 0 3px rgba(11, 122, 85, .35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1411; --surface: #17201b; --surface-2: #1f2a24; --surface-3: #29362f;
+    --ink: #edf3ef; --ink-2: #b0bcb5; --ink-3: #8c9891; --line: #2d3a33;
+    --primary: #3cc48e; --primary-hover: #5bd3a2; --primary-ink: #052419; --primary-soft: #143a2b; --primary-soft-ink: #8fe2bf;
+    --move: #ff9a62; --move-soft: #3d2215; --eat: #7fd683; --eat-soft: #1c3320; --mind: #b99cf2; --mind-soft: #2c2142;
+    --warn: #f5b454; --warn-soft: #3a2a10; --danger: #ff8a80; --danger-soft: #3d1a17; --info: #8db4f7; --info-soft: #172a47;
+    --shadow-1: 0 1px 2px rgba(0,0,0,.4); --shadow-2: 0 8px 24px rgba(0,0,0,.45); --focus: 0 0 0 3px rgba(60,196,142,.45);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1411; --surface: #17201b; --surface-2: #1f2a24; --surface-3: #29362f;
+  --ink: #edf3ef; --ink-2: #b0bcb5; --ink-3: #8c9891; --line: #2d3a33;
+  --primary: #3cc48e; --primary-hover: #5bd3a2; --primary-ink: #052419; --primary-soft: #143a2b; --primary-soft-ink: #8fe2bf;
+  --move: #ff9a62; --move-soft: #3d2215; --eat: #7fd683; --eat-soft: #1c3320; --mind: #b99cf2; --mind-soft: #2c2142;
+  --warn: #f5b454; --warn-soft: #3a2a10; --danger: #ff8a80; --danger-soft: #3d1a17; --info: #8db4f7; --info-soft: #172a47;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4); --shadow-2: 0 8px 24px rgba(0,0,0,.45); --focus: 0 0 0 3px rgba(60,196,142,.45);
+}

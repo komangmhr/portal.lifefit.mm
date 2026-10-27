@@ -1,0 +1,42 @@
+/* Daftar 34 bug yang masih open (retest 2026-10-21, Jira To Do) dan di mana desain perbaikannya.
+   owner: siapa yang harus berubah supaya bug tertutup.
+     CMS     = data/field/filter belum ada di CMS, portal tidak punya konten untuk ditampilkan
+     Portal  = logika/tampilan portal saja
+     Both    = CMS menyiapkan data, portal menampilkan
+   portal / cms: route prototype (hash) yang menampilkan desain perbaikannya. */
+window.LF_BUGS = [
+  { id: 'LF-268', sev: 'Minor',  area: 'Exercise Detail', owner: 'Portal', title: 'Tidak ada tombol Start Workout, hanya Play video', fix: 'CTA "Start Workout" membuka sesi 1 exercise (timer + set counter) memakai sets/reps dari CMS.', portal: 'exercise', cms: 'exercises' },
+  { id: 'LF-271', sev: 'Major',  area: 'Sign In',        owner: 'Portal', title: 'User baru tidak diarahkan ke Onboarding', fix: 'Setelah login cek onboarding_completed; false → /onboarding. Alur ditunjukkan di layar Sign In.', portal: 'login' },
+  { id: 'LF-277', sev: 'Major',  area: 'Onboarding',     owner: 'Both',   title: 'Summary BMI "--" & priorities kosong (LFOB is not defined)', fix: 'BMI dihitung dari tinggi/berat yang diisi; priorities dari aturan yang dikelola di CMS.', portal: 'onb-summary', cms: 'onboarding' },
+  { id: 'LF-279', sev: 'Major',  area: 'Onboarding',     owner: 'Portal', title: 'Jawaban onboarding tidak tersimpan ke Profile', fix: 'Summary punya tombol "Save & continue" yang POST ke profil; Edit Profile terisi dari data itu.', portal: 'onb-summary' },
+  { id: 'LF-280', sev: 'Major',  area: 'Home',           owner: 'Both',   title: 'Daily Progress statis 78%', fix: 'Persentase = rata-rata 3 komponen dari aktivitas user; target harian diatur di CMS; akun baru tampil empty state.', portal: 'home', cms: 'settings' },
+  { id: 'LF-285', sev: 'Major',  area: 'Health Cooking', owner: 'CMS',    title: 'Filter Breakfast/Lunch/Dinner/Snacks tidak memfilter', fix: 'CMS: field Meal category (wajib, multi) di resep + taxonomy. Portal: query ?category= dan empty state.', portal: 'cooking', cms: 'recipes' },
+  { id: 'LF-286', sev: 'Major',  area: 'Yoga',           owner: 'CMS',    title: 'Filter level Yoga tidak memfilter', fix: 'CMS: field Level (Beginner/Intermediate/Advanced) wajib di sesi yoga.', portal: 'yoga', cms: 'yoga' },
+  { id: 'LF-287', sev: 'Major',  area: 'Mind',           owner: 'CMS',    title: 'Filter Sleep/Stress Relief/Focus/Anxiety tidak memfilter', fix: 'CMS: field Category di guided session + taxonomy Mind.', portal: 'mind', cms: 'mind' },
+  { id: 'LF-291', sev: 'Major',  area: 'Profile',        owner: 'Portal', title: 'Statistik & Weekly Activity statis (48/12/14)', fix: 'Statistik dari activity log user; akun baru 0 + empty state grafik.', portal: 'profile' },
+  { id: 'LF-293', sev: 'Major',  area: 'Language',       owner: 'Both',   title: 'Label "min", "meals", "Feed" belum diterjemahkan', fix: 'CMS: modul Translations (UI strings EN/MY/ID, indikator missing) + fallback konten ke EN.', portal: 'profile', cms: 'translations' },
+  { id: 'LF-294', sev: 'Major',  area: 'Legal',          owner: 'CMS',    title: 'Terms & Privacy berisi "1" dan "2"', fix: 'CMS: modul Legal Pages dengan rich text, versi, preview, publish oleh role Legal saja (tidak bisa ditimpa automation).', portal: 'legal-doc', cms: 'legal' },
+  { id: 'LF-296', sev: 'Minor',  area: 'Sign In',        owner: 'Portal', title: 'Judul "Sign In", tanpa "Create New Account"', fix: 'Judul "Sign in or Sign up" + tombol "Create New Account" sesuai referensi.', portal: 'login' },
+  { id: 'LF-298', sev: 'Minor',  area: 'Onboarding',     owner: 'Both',   title: 'Intro onboarding beda referensi, tanpa Next/Skip', fix: 'Slide dari CMS (judul, teks, gambar) + tombol Next/Skip + CTA referensi.', portal: 'onb-intro', cms: 'onboarding' },
+  { id: 'LF-302', sev: 'Minor',  area: 'Onboarding',     owner: 'Both',   title: 'Step pemilihan negara tidak ada', fix: 'Step Country (default Myanmar) dengan daftar negara aktif dari CMS.', portal: 'onb-country', cms: 'onboarding' },
+  { id: 'LF-307', sev: 'Minor',  area: 'Fitness',        owner: 'CMS',    title: 'Featured Programs berisi 1 exercise', fix: 'CMS: modul Programs (multi-minggu, susun hari & exercise, flag Featured).', portal: 'fitness', cms: 'programs' },
+  { id: 'LF-309', sev: 'Minor',  area: 'Fitness',        owner: 'CMS',    title: 'Filter goal tidak tersedia', fix: 'CMS: taxonomy Fitness Goals + tag goal di workout plan. Portal: sheet pilih goal.', portal: 'fitness', cms: 'plans' },
+  { id: 'LF-310', sev: 'Minor',  area: 'Exercise Detail',owner: 'CMS',    title: 'Tidak ada otot target, level, set/reps', fix: 'CMS: field Target muscles, Level, Sets, Reps, Rest, Equipment di exercise.', portal: 'exercise', cms: 'exercises' },
+  { id: 'LF-315', sev: 'Minor',  area: 'Health Cooking', owner: 'Portal', title: 'Save recipe hilang setelah reload', fix: 'Save disimpan di server (saved_items); state dibaca saat render.', portal: 'recipe' },
+  { id: 'LF-317', sev: 'Minor',  area: 'Yoga',           owner: 'CMS',    title: 'Tidak ada gaya Vinyasa/Hatha/Restorative/Power', fix: 'CMS: field Style + flag Featured (Morning Flow). Portal: filter gaya.', portal: 'yoga', cms: 'yoga' },
+  { id: 'LF-319', sev: 'Minor',  area: 'Motivation',     owner: 'Portal', title: 'Daily Challenge kembali "In Progress"', fix: 'Status challenge per user per hari disimpan di server.', portal: 'motivation' },
+  { id: 'LF-323', sev: 'Minor',  area: 'Coach Session',  owner: 'Both',   title: 'Message hanya toast', fix: 'Layar chat dengan coach; pesan masuk ke inbox coach di CMS.', portal: 'coach-chat', cms: 'support' },
+  { id: 'LF-324', sev: 'Minor',  area: 'Coach Session',  owner: 'Both',   title: 'Reschedule hanya toast "coming soon"', fix: 'Sheet pilih slot dari jadwal coach (dikelola di CMS).', portal: 'coach', cms: 'coaches' },
+  { id: 'LF-327', sev: 'Minor',  area: 'Notifications',  owner: 'Portal', title: 'Mark all as read tidak tersimpan', fix: 'PATCH read_at ke server; badge dihitung dari data.', portal: 'notifications' },
+  { id: 'LF-328', sev: 'Minor',  area: 'Notifications',  owner: 'Both',   title: 'Daftar notifikasi statis', fix: 'CMS: template + trigger notifikasi; portal: list per user + empty state.', portal: 'notifications', cms: 'notifications' },
+  { id: 'LF-329', sev: 'Minor',  area: 'Privacy',        owner: 'Portal', title: 'Toggle Private profile tidak tersimpan', fix: 'Toggle simpan ke user_settings dengan feedback "Saved".', portal: 'privacy' },
+  { id: 'LF-330', sev: 'Minor',  area: 'Privacy',        owner: 'Portal', title: 'Daftar perangkat & revoke tidak ada', fix: 'Halaman Logged-in devices: perangkat, lokasi, waktu, tombol Sign out per perangkat.', portal: 'devices' },
+  { id: 'LF-332', sev: 'Minor',  area: 'Help & Support', owner: 'Both',   title: 'Chat with support membuka form kontak', fix: 'Layar live chat; percakapan masuk ke Support Inbox di CMS.', portal: 'support-chat', cms: 'support' },
+  { id: 'LF-333', sev: 'Minor',  area: 'Privacy',        owner: 'Both',   title: 'Download my data hanya toast', fix: 'Request export → status "Processing" → link unduh dikirim; diproses di CMS Data Requests.', portal: 'legal', cms: 'requests' },
+  { id: 'LF-339', sev: 'Trivial',area: 'Fitness',        owner: 'CMS',    title: 'Kartu Workout Plans tanpa level', fix: 'CMS: field Level di workout plan; kartu menampilkan durasi · kcal · level.', portal: 'fitness', cms: 'plans' },
+  { id: 'LF-342', sev: 'Trivial',area: 'Health Cooking', owner: 'CMS',    title: 'Kartu resep tanpa waktu masak & kalori', fix: 'CMS: field Cook time (menit) & Calories wajib.', portal: 'cooking', cms: 'recipes' },
+  { id: 'LF-343', sev: 'Trivial',area: 'Health Cooking', owner: 'CMS',    title: 'Typo Smootie, Pakecakes, Omelete, geek yogurt', fix: 'Perbaiki data di CMS + spell-check warning di form.', portal: 'cooking', cms: 'recipe-edit' },
+  { id: 'LF-349', sev: 'Trivial',area: 'Coach Session',  owner: 'CMS',    title: 'Rincian makronutrien tidak ada', fix: 'CMS: field Carbs/Protein/Fat/kcal di coach session.', portal: 'coach', cms: 'coaches' },
+  { id: 'LF-351', sev: 'Trivial',area: 'Profile',        owner: 'Portal', title: 'Menu Legal & Data tidak ada di Profile', fix: 'Row "Legal & Data" di menu Profile.', portal: 'profile' },
+  { id: 'LF-352', sev: 'Trivial',area: 'Edit Profile',   owner: 'Portal', title: 'Keluar dari Edit Profile tanpa konfirmasi', fix: 'Dialog "Discard changes?" saat Back dengan perubahan belum disimpan.', portal: 'edit-profile' }
+];
