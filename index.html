@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>LifeFit MM Portal — Bug Fix Design</title>
-  <meta name="description" content="Design perbaikan 34 bug open Portal LifeFit Myanmar (LF-235), retest 2026-10-21.">
+  <title>LifeFit</title>
+  <meta name="description" content="LifeFit Myanmar portal — fitness, yoga, meditation, healthy cooking and mind games. Includes fixes for the LF-235 bug list.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Myanmar:wght@400;600&display=swap" rel="stylesheet">
@@ -12,38 +12,33 @@
   <link rel="stylesheet" href="assets/portal.css">
 </head>
 <body>
-  <div class="stage">
-    <aside class="index" id="bugIndex" aria-label="Bug index">
-      <div class="index-head">
-        <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div><strong>LifeFit MM</strong><span>Portal · bug fix design</span></div></div>
-        <button class="icon-btn index-close" data-action="close-index" aria-label="Close bug index">✕</button>
+  <div class="shell" id="shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="logo" href="#/home"><span class="brand-mark" aria-hidden="true"></span><span>LifeFit</span></a>
+      <nav class="side-nav" id="sideNav"></nav>
+      <div class="side-foot">
+        <button class="side-bugs" data-action="open-index"><span>Bug fixes</span><b id="bugCount">34</b></button>
       </div>
-      <p class="index-lead">34 bug masih open per retest 21 Okt 2026. Pilih bug untuk membuka layar perbaikannya.</p>
-      <div class="index-filter" role="group" aria-label="Filter owner">
-        <button class="chip is-active" data-owner="all">All</button>
-        <button class="chip" data-owner="CMS">CMS</button>
-        <button class="chip" data-owner="Both">CMS + Portal</button>
-        <button class="chip" data-owner="Portal">Portal</button>
-      </div>
-      <ol class="bug-list" id="bugList"></ol>
-      <a class="index-link" href="https://github.com/komangmhr/cms.lifefit.mm" id="cmsLink" target="_blank" rel="noopener">Buka desain CMS ↗</a>
     </aside>
-
-    <main class="device-wrap">
-      <div class="device" id="device">
-        <div class="screen" id="screen" tabindex="-1"></div>
-        <nav class="tabbar" id="tabbar" aria-label="Main">
-          <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="nav_home">Home</span></a>
-          <a href="#/explore" data-tab="explore"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-i18n="nav_explore">Explore</span></a>
-          <a href="#/fitness" data-tab="fitness"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg><span data-i18n="nav_fitness">Fitness</span></a>
-          <a href="#/profile" data-tab="profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="nav_profile">Profile</span></a>
-        </nav>
-        <div class="toast" id="toast" role="status" aria-live="polite"></div>
-        <div class="sheet-root" id="sheetRoot"></div>
-      </div>
-      <button class="fab-index" data-action="open-index" aria-label="Open bug index">Bug list <span id="fabCount">34</span></button>
-    </main>
+    <div class="main-col">
+      <main id="screen" class="screen" tabindex="-1"></main>
+    </div>
+    <nav class="tabbar" id="tabbar" aria-label="Main"></nav>
   </div>
+
+  <aside class="bug-index" id="bugIndex" aria-label="Bug fix index">
+    <div class="bi-head"><div><strong>Bug fixes · LF-235</strong><span>34 open bugs, retest 21 Oct 2026</span></div><button class="icon-btn" data-action="close-index" aria-label="Close">✕</button></div>
+    <label class="bi-toggle"><span>Show bug notes on pages</span><button class="switch" role="switch" id="notesSwitch" data-action="toggle-notes" aria-label="Show bug notes"></button></label>
+    <div class="bi-filter" role="group" aria-label="Filter by owner">
+      <button class="chip is-active" data-owner="all">All</button><button class="chip" data-owner="CMS">CMS</button><button class="chip" data-owner="Both">CMS + Portal</button><button class="chip" data-owner="Portal">Portal</button>
+    </div>
+    <ol class="bug-list" id="bugList"></ol>
+    <button class="link-btn" data-action="reset" style="margin:12px 0 24px">Reset demo data</button>
+  </aside>
+  <div class="bi-scrim" data-action="close-index"></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sheet-root" id="sheetRoot"></div>
   <script src="assets/bugs.js"></script>
   <script src="assets/app.js"></script>
 </body>

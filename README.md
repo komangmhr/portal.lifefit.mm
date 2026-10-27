@@ -1,9 +1,13 @@
 # LifeFit MM — Portal bug fix design
 
-Prototype desain perbaikan **34 bug yang masih open** di Portal LifeFit Myanmar `mm.lifefit.mobi` (LF-235, retest 21 Okt 2026), mengacu ke referensi `new-lifefit.vercel.app`.
+Desain lengkap Portal LifeFit Myanmar `mm.lifefit.mobi`: semua layar dari referensi `new-lifefit.vercel.app`, ditambah perbaikan **34 bug yang masih open** (LF-235, retest 21 Okt 2026).
 
-- Panel kiri berisi daftar bug. Klik satu bug untuk membuka layar perbaikannya. Chip `LF-xxx` di setiap layar menjelaskan apa yang diperbaiki.
-- Toggle **Demo data: New account / Has activity** menampilkan empty state vs data nyata (LF-280, 291, 328).
+- **Responsive.** Desktop memakai sidebar dan layout beberapa kolom, tablet memakai sidebar ikon, dan HP memakai tab bar bawah.
+- **Layar:** Home, Explore, Fitness, Exercise + sesi workout, Health Cooking + resep, Healthy Living + artikel + magazine, Yoga, Mind + player, Mind Games + detail + play, Motivation + story, BMI Calculator, Coach Session + chat, Profile, Setting Profile, Notifications, Privacy & Security, Logged-in devices, Legal & Data, Terms/Privacy, Help & Support + live chat + contact, Sign in, OTP, Onboarding (intro, step 1 + negara, summary).
+- **Di luar scope MM** (dihapus di production): LifeFit Live, Video Call, AI Coach, Live Session di Home. Ada catatan di layar terkait.
+- **Gambar** memakai aset referensi dari `new-lifefit.vercel.app/img/`. Kalau gagal dimuat, yang tampil placeholder ilustrasi.
+- **Bug notes.** Tombol **Bug fixes** (sidebar) membuka daftar bug. Chip `LF-xxx` di halaman bisa disembunyikan lewat toggle "Show bug notes on pages" untuk tampilan bersih.
+- **Demo data: New account / Has activity** menampilkan empty state vs data nyata (LF-280, 291, 328).
 - Status Save, challenge, notifikasi, privacy, dan bahasa disimpan di browser untuk mensimulasikan persistence di server. Gunakan **Reset demo data** untuk mengulang.
 - Desain CMS pasangannya ada di repo [`cms.lifefit.mm`](https://github.com/komangmhr/cms.lifefit.mm).
 
